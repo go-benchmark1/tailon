@@ -3,7 +3,7 @@ ADD . /go/src/github.com/gvalkov/tailon/
 RUN apk add --upgrade git upx binutils
 RUN cd /go/src/github.com/gvalkov/tailon && go get && go build && strip tailon && upx tailon
 
-FROM alpine:3.7
+FROM alpine:3.19
 WORKDIR /tailon
 COPY --from=build /go/src/github.com/gvalkov/tailon/tailon /usr/local/bin/tailon
 
